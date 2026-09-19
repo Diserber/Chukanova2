@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Премиум 3D Изометрическая Витрина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Concept Store 3D</h1>
+        <p>Интерактивная изометрическая галерея товаров нового поколения</p>
+        <div class="header-content">
+            <div class="logo-area">
+                <h1>Concept Store 3D</h1>
+                <p>Интерактивная изометрическая галерея</p>
+            </div>
+            <button class="checkout-trigger-btn" id="openModalBtn">💳 Оплата заказа</button>
+    </header>
+    <main class="scene-wrapper">
+        <div class="iso-grid">
+
+            <div class="product-card" style="--accent-color: #ff5e62;">
+                <div class="card-hitbox"></div>
+                <div class="card-3d-base">
+                    <div class="product-shelf-top"></div>
+                    <div class="card-content-lift">
+                        <div class="badge">New</div>
+                        <div class="product-image-placeholder">👟</div>
+                        <span class="brand">Nike Air</span>
+                        <h3>Futuristic Sneaker</h3>
+                        <div class="card-footer">
+                            <span class="price">$189</span>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" style="--accent-color: #ff9966;">
+                <div class="card-hitbox"></div>
+                <div class="card-3d-base">
+                    <div class="product-shelf-top"></div>
+                    <div class="card-content-lift">
+                        <span class="brand">Apple Inc.</span>
+                        <h3>Watch Series X</h3>
+                        <div class="card-footer">
+                            <span class="price">$399</span>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" style="--accent-color: #7f00ff;">
+                <div class="card-hitbox"></div>
+                <div class="card-3d-base">
+                    <div class="product-shelf-top"></div>
+                    <div class="card-content-lift">
+                        <div class="badge">Trend</div>
+                        <div class="product-image-placeholder">🎧</div>
+                        <span class="brand">Sony</span>
+                        <h3>Audio-X Wireless</h3>
+                        <div class="card-footer">
+                            <span class="price">$299</span>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" style="--accent-color: #00b4db;">
+                <div class="card-hitbox"></div>
+                <div class="card-3d-base">
+                    <div class="product-shelf-top"></div>
+                    <div class="card-content-lift">
+                        <span class="brand">Peak Design</span>
+                        <h3>Urban Backpack</h3>
+                        <div class="card-footer">
+                            <span class="price">$145</span>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" style="--accent-color: #11998e;">
+                <div class="card-hitbox"></div>
+                <div class="card-3d-base">
+                    <div class="product-shelf-top"></div>
+                    <div class="card-content-lift">
+                        <span class="brand">North Face</span>
+                        <h3>Cyber Shell Jacket</h3>
+                        <div class="card-footer">
+                            <span class="price">$220</span>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" style="--accent-color: #f12711;">
+                <div class="card-hitbox"></div>
+                <div class="card-3d-base">
+                    <div class="product-shelf-top"></div>
+                    <div class="card-content-lift">
+                        <span class="brand">RayBan</span>
+                        <h3>Prism Sunglasses</h3>
+                        <div class="card-footer">
+                            <span class="price">$95</span>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+            
+            <div class="credit-card-wrapper">
+                <div class="flip-card" id="creditCard">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-chip"></div>
+                            <div class="card-type-icon" id="cardType">LOGO</div>
+                            <div class="card-number-display" id="viewNumber">•••• •••• •••• ••••</div>
+                            <div class="card-holder-layout">
+                                <div class="field-block">
+                                    <span class="label">Card Holder</span>
+                                    <div class="val" id="viewName">FULL NAME</div>
+                                </div>
+                                <div class="field-block">
+                                    <span class="label">Expires</span>
+                                    <div class="val" id="viewExpiry">MM/YY</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="magnetic-stripe"></div>
+                            <div class="ccv-stripe">
+                                <span class="label">CVV</span>
+                                <div class="ccv-box" id="viewCVV">•••</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="card-form" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <label>Номер карты</label>
+                        <input type="text" id="inputNumber" maxlength="19" placeholder="4111 2222 3333 4444" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label>Имя держателя</label>
+                        <input type="text" id="inputName" placeholder="IVAN IVANOV" autocomplete="off">
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Срок действия</label>
+                            <input type="text" id="inputExpiry" maxlength="5" placeholder="MM/YY" autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label>CVV код</label>
+                            <input type="password" id="inputCVV" maxlength="3" placeholder="•••" autocomplete="off">
+                        </div>
+                    </div>
+                    <button class="submit-payment-btn">Подтвердить оплату</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+        <section class="flip-section-wrapper">
+            <h2 class="section-title">Коллекции & Галерея</h2>
+            
+            <div class="flip-cards-grid">
+                
+                <div class="flip-showcase-card">
+                    <div class="hovering-text-title">Premium Leather</div>
+                    
+                    <div class="card-flip-body">
+                        <div class="card-side-front bg-gradient-1">
+                            <div class="visual-art">💼</div>
+                        </div>
+                        <div class="card-side-back">
+                            <h4>Эксклюзивные материалы</h4>
+                            <p>Натуральная кожа премиального качества с водоотталкивающей пропиткой.</p>
+                            <a href="#" class="details-link">Подробнее &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-showcase-card">
+                    <div class="hovering-text-title">Eco Materials</div>
+                    <div class="card-flip-body">
+                        <div class="card-side-front bg-gradient-2">
+                            <div class="visual-art">🌱</div>
+                        </div>
+                        <div class="card-side-back">
+                            <h4>Осознанность</h4>
+                            <p>100% перерабатываемые компоненты, созданные с заботой о планете.</p>
+                            <a href="#" class="details-link">Подробнее &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-showcase-card">
+                    <div class="hovering-text-title">Smart Tech</div>
+                    <div class="card-flip-body">
+                        <div class="card-side-front bg-gradient-3">
+                            <div class="visual-art">⚡</div>
+                        </div>
+                        <div class="card-side-back">
+                            <h4>Умная экосистема</h4>
+                            <p>Интеграция с мобильным приложением и встроенные датчики отслеживания.</p>
+                            <a href="#" class="details-link">Подробнее &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
